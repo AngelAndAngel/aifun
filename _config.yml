@@ -12,7 +12,7 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
-url: http://example.com
+url: http://www.aifun.club
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
