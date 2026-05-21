@@ -10,12 +10,12 @@ DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M)
 POST_FILE="$POSTS_DIR/$DATE-ai-daily.md"
 
-echo "🤖 开始生成 AI 日报: $DATE"
+echo "🤖 开始生成 AI日报: $DATE"
 
-# 搜索 AI 最新资讯
-echo "🔍 搜索 AI 资讯..."
+# 搜索 AI 最新资讯（macOS 兼容版）
+echo "🔍 搜索 AI资讯..."
 NEWS_CONTENT=$(curl -s "https://news.google.com/rss/search?q=artificial+intelligence&hl=zh-CN&gl=CN&ceid=CN:zh-Hans" | \
-  grep -oP '(?<=<title>).*?(?=</title>)' | \
+  sed -n 's/.*<title>\(.*\)<\/title>.*/\1/p' | \
   head -15 | \
   awk '{print "- " $0}')
 
